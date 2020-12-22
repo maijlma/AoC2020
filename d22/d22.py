@@ -45,12 +45,10 @@ def play_recursive(player1, player2):
         lst = player1 + player2
         if lst not in roundlist:
             roundlist.append(lst)
-            print("Appended!")
         else:
             return player1
         #check for recursion, go to subgame if found
         if player1[0] <= len(player1) - 1 and player2[0] <= len(player2) - 1:
-            print("Subgame!")
             win, winner = play_combat(player1[1:player1[0] + 1], player2[1:player2[0] + 1])
             if win == 1:
                 player1.append(player1[0])
@@ -60,7 +58,6 @@ def play_recursive(player1, player2):
                 player2.append(player1[0])
         #regular combat terms
         else:
-            print("Regular!")
             player1, player2 = round(player1, player2)
         #remove the played card
         del player1[0]
